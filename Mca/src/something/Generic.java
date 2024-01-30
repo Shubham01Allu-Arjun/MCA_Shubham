@@ -1,0 +1,51 @@
+package something;
+
+import java.util.*;
+interface A
+{
+Scanner sc = new Scanner(System.in);
+public void Area();
+}
+class circle implements A
+{
+{System.out.println("Enter Radius of Circle: ");}
+int r = sc.nextInt();
+public void Area()
+{
+System.out.println("AREA OF CIRCLE: "+3.14*r*r);
+}
+}
+class square implements A
+{
+{System.out.println("Enter Side of Square: ");}
+int s = sc.nextInt();
+public void Area()
+{
+System.out.println("AREA OF SQUARE: "+s*s);
+}
+}class triangle
+{
+public void Area()
+{
+System.out.println("TRIANGLE");
+}
+}
+class BoundedShape<T extends A>
+{
+private T obje;
+public BoundedShape(T obje)
+{
+this.obje= obje;
+}
+public void gotcha()
+{
+this.obje.Area();
+}
+public static void main(String args[])
+{
+BoundedShape<circle> s = new BoundedShape<circle>(new circle());
+s.gotcha();
+BoundedShape<square> t = new BoundedShape<square>(new square());
+t.gotcha();
+}
+}
